@@ -7,6 +7,7 @@
     --spotify-white: #ffffff;
     --spotify-grey: #b3b3b3;
     --spotify-darkGrey: #222222;
+    
 }
 
 /* reset */
@@ -16,6 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 1rem;
+    
 }
 
 img,
@@ -27,16 +29,59 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    font-family: 'Manrope', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--spotify-black);
+    
+}
 
 /* center everything */
 
-body {}
+body {
+    
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-columns:0.5fr 2fr 0.5fr;
+}
+
+.album{
+    max-width: 25 rem;
+    background-color: var(--spotify-darkGrey);
+    grid-row:2;
+    grid-column: 2;
+    padding:1rem;
+    border-radius: 5%;
+}
+
+.album__title{
+    color: var(--spotify-white);
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.album__artist{
+    color: var(--spotify-grey);
+    grid-column: 1;
+    grid-row: 2;
+}
+
+
+.album__header{
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-areas: "icons";
+    position: relative;
+    
+}
 
 /*
     Object: Button reset
     ---
     Small button reset object
+
+
 */
 
 .button-reset {
@@ -65,6 +110,32 @@ body {}
 /*
     Toggle button
 */
+.toggle__icon{
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+    &.icon--add{
+        
+        grid-area: icons;
+        z-index: 2; 
+        color: var(--spotify-white);
+    }
+
+    &.icon--check{
+        color: var(--spotify-green);
+        grid-area: icons;
+    opacity: 0;
+    z-index: 1;
+    }
+} 
+
+.toggle__icon.added .icon--add {
+    opacity: 1;
+}
+
+.toggle__icon.added .icon--check {
+    opacity: 1;
+}
 
 /*
     Album
